@@ -65,13 +65,27 @@ async function createPlan(req, res) {
   }
 }
 
+
 // GET /api/plans
 async function getPlans(req, res) {
   try {
     const plans = await AIPlanner.find({ user: req.user.id })
       .sort({ createdAt: -1 })
       .populate("daywisePlan");
-    return res.status(200).json(plans);
+
+    // Map over the array to format each plan individually
+    const formattedPlans = plans.map(plan => ({
+      _id: plan._id,
+      role: plan.role,
+      noOfDays: plan.noOfDays,
+      level: plan.level,
+      createdAt: plan.createdAt,
+      // You can include the populated details if needed:
+      // daywisePlan: plan.daywisePlan 
+    }));
+
+    return res.status(200).json(formattedPlans);
+
   } catch (error) {
     console.error("Error fetching plans:", error);
     return res.status(500).json({ message: "Server error" });

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, BrowserRouter, Routes, Route } from "react-router-dom"; 
 
-// This internal component contains the logic that requires the Router context
+
 function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -46,7 +46,7 @@ function Signup() {
         if (data.token) {
             localStorage.setItem("token", data.token);
             alert("Signup successful! You are now logged in.");
-            navigate("/dashboard"); 
+            navigate("/"); 
         } else {
             alert("Signup successful! Please login.");
             navigate("/login"); 

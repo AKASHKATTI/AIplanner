@@ -2,15 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import UserContext from './Context/UserContext'
 
 
 import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* 2. Wrap your App component inside BrowserRouter */}
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    
+    <BrowserRouter>  {/* Router must be first */}
+    <UserContext>
+        <App />
+    </UserContext>
+</BrowserRouter>
   </React.StrictMode>,
 )

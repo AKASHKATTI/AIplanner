@@ -42,7 +42,7 @@ export default function Login() {
       }
 
       // Redirect after login
-      // navigate("/dashboard");
+      navigate("/");
     } catch (err) {
       console.error("Login failed:", err);
 

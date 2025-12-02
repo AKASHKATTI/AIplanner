@@ -32,6 +32,8 @@ const UserProvider = ({children}) => {
             })
     }, [ token ])
 
+    
+
     if (isLoading) {
         return (
             <div>Loading...</div>

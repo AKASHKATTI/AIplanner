@@ -23,8 +23,12 @@ export default function Login() {
 
     try {
       setLoading(true);
+
+      // console.log("ENV:", import.meta.env.VITE_API_BASE_URL);
+
       
-      const response = await axios.post("http://localhost:4000/api/users/login", payload, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/users/login`, payload, {
+
         headers: {
           "Content-Type": "application/json",
         },

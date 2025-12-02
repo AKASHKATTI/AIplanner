@@ -29,7 +29,8 @@ function Signup() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:4000/api/users/register",
+  `${import.meta.env.VITE_API_BASE_URL}/api/users/register`,
+
         { username, email, password },
         {
           headers: { "Content-Type": "application/json" },
@@ -37,7 +38,7 @@ function Signup() {
         }
       );
       
-      console.log("Server Response:", response);
+      // console.log("Server Response:", response);
 
       const data = response.data;
 

@@ -1,19 +1,15 @@
 import React from "react";
 import { Sparkles, ArrowRight } from "lucide-react";
-// 1. Import the hook, not the component
 import { useNavigate } from "react-router-dom";
 
-// import PlanInput from "../components/PlanInput";
-// import Navbar from "../components/Navbar";
-
 function HomePage() {
-  // 2. Initialize the hook
+ 
   const navigate = useNavigate();
 
   return (
     <div className="px-2 py-6">
 
-      {/* <Navbar /> */}
+      
 
       <div className="flex flex-col lg:flex-row justify-between ml-20">
         
@@ -52,10 +48,6 @@ function HomePage() {
 
         </div>
 
-        {/* RIGHT SECTION */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center ml-5">
-          {/* <PlanInput /> */}
-        </div>
 
       </div>
 

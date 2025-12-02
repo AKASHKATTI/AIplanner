@@ -17,29 +17,29 @@ function PlanCard({
   level = "Beginner",
   createdAt = new Date().toLocaleDateString(),
 }) {
-  // Logic to get initials (First letter of each word, max 3 chars)
+  
   const getInitials = (name) => {
     if (!name) return "P";
     return name
-      .split(/\s+/) // split on whitespace
+      .split(/\s+/) 
       .map((word) => word[0] || "")
       .filter(Boolean)
       .join("")
       .toUpperCase()
-      .slice(0, 3); // max 3 characters
+      .slice(0, 3); 
   };
 
-  // Logic for badge colors based on level
+  
   const getLevelColor = (lvl) => {
     if (!lvl) return 'bg-gray-100 text-gray-700 border-gray-200';
     const l = lvl.toLowerCase();
     if (l === 'beginner') return 'bg-green-100 text-green-700 border-green-200';
     if (l === 'intermediate') return 'bg-yellow-100 text-yellow-700 border-yellow-200';
-    return 'bg-red-100 text-red-700 border-red-200'; // advanced / other
+    return 'bg-red-100 text-red-700 border-red-200'; 
   };
 
   return (
-    <div className="group relative block w-full max-w-sm p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
+    <div className="group relative block w-full max-w-md p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
       {/* Header */}
       <div className="flex items-start gap-4 mb-6">
         {/* Initials Circle */}

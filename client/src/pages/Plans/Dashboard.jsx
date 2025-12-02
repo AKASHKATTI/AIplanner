@@ -16,8 +16,9 @@ function Dashboard() {
         console.log(token)
 
         
-        // (e.g., /api/plans OR /api/planner/plans)
-        const response = await axios.get("http://localhost:4000/api/planner/plans", {
+        
+        
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/planner/plans`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -46,9 +47,9 @@ function Dashboard() {
   return (
     <div>
       <div className="p-5">
-        <h1 className="text-2xl font-bold mb-4">Get Plans</h1>
+        {/* <h1 className="text-2xl font-bold mb-4">Plans</h1> */}
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {availablePlans.map((plan) => (
             <div 
               key={plan._id} 
@@ -70,11 +71,11 @@ function Dashboard() {
       </div>
 
       <button
-        className="bg-amber-900 p-2 rounded-2xl m-20 text-white font-semibold shadow-md hover:bg-amber-800 transition-colors"
-        onClick={() => navigate("/plans/create-plan")}
-      >
-        Create Plan
-      </button>
+  className="fixed  px-10 py-2  bottom-8 left-1/2 -translate-x-1/2 bg-amber-900 p-3 px-6 rounded-3xl text-white font-semibold shadow-lg hover:bg-amber-800 transition-all transform hover:scale-105 z-50"
+  onClick={() => navigate("/plans/create-plan")}
+>
+  Create Plan
+</button>
     </div>
   );
 }

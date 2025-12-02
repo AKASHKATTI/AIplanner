@@ -1,49 +1,36 @@
-import React, { useState } from "react";
+import React from "react"; // Removed unused useState
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import Login from "./pages/AUTH/Login";
 import Register from "./pages/AUTH/Register";
-import UserProvider from "./components/AUTH/UserProvider";
+import UserProvider from "./Context/UserContext"; // Ensure this path is correct based on your file structure
 import Dashboard from "./pages/Plans/Dashboard";
 import ViewPlan from "./pages/Plans/ViewPlan";
 import PlanInput from "./pages/Plans/PlanInput";
-
-
-
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [plans, setPlans] = useState([]);
+  // Removed unused 'plans' state. 
+  // Ideally, 'plans' should be managed inside Dashboard or a PlansContext.
 
   return (
-    <div>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
+    // 1. Wrap the whole app in UserProvider so Navbar can access user state
+    <UserProvider>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
 
-         <Route path='/plans'
-          element={
-            <UserProvider>
-              <Dashboard />
-            </UserProvider>
-          } />
-          <Route path='/plans/:id'
-          element={
-            <UserProvider>
-              <ViewPlan />
-            </UserProvider>
-          } />
+          {/* 2. Simplified Routes (Provider is now global) */}
+          <Route path='/plans' element={<Dashboard />} />
+          <Route path='/plans/:id' element={<ViewPlan />} />
+          <Route path='/plans/create-plan' element={<PlanInput />} />
 
-          <Route path='/plans/create-plan'
-          element={
-            <UserProvider>
-              <PlanInput />
-            </UserProvider>
-          } />
-
-         <Route path='/login' element = {<Login/>}/>
-         <Route path='/register' element = {<Register/>}/>
-
-      </Routes>
-    </div>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </div>
+    </UserProvider>
   );
 }
 

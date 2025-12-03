@@ -21,7 +21,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
 
-          {/* 2. Simplified Routes (Provider is now global) */}
+          
           <Route path='/plans' element={<Dashboard />} />
           <Route path='/plans/:id' element={<ViewPlan />} />
           <Route path='/plans/create-plan' element={<PlanInput />} />

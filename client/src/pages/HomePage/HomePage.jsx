@@ -36,7 +36,7 @@ function HomePage() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-start gap-1 mt-5">
-            {/* 3. Fix the onClick handler */}
+            
             <button 
               className="group relative px-5 py-2 bg-gray-900 text-white text-lg font-semibold rounded-2xl hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-3"
               onClick={() => navigate("/plans")}

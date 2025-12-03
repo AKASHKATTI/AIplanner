@@ -24,7 +24,6 @@ export default function Login() {
     try {
       setLoading(true);
 
-      // console.log("ENV:", import.meta.env.VITE_API_BASE_URL);
 
       
       const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/users/login`, payload, {
@@ -36,11 +35,11 @@ export default function Login() {
         
       });
 
-      // axios returns parsed JSON in response.data
+      
       const data = response.data;
       console.log("Login successful:", data);
 
-      // Example: if your backend returns token
+      
       if (data?.token) {
         localStorage.setItem("token", data.token);
       }
@@ -50,7 +49,7 @@ export default function Login() {
     } catch (err) {
       console.error("Login failed:", err);
 
-      // Preferentially show server error message if provided
+      
       const serverMessage = err?.response?.data?.message || err?.response?.data || err.message;
       setError(serverMessage || "An error occurred during login.");
 

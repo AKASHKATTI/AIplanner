@@ -21,6 +21,7 @@ const UserProvider = ({children}) => {
         }).then(response => {
             if (response.status === 200) {
                 setUser(response.data)
+                
                 console.log(response.data)
                 setIsLoading(false)
             }
@@ -47,4 +48,4 @@ const UserProvider = ({children}) => {
     )
 }
 
-export default UserProvider
+export default UserProvider;
